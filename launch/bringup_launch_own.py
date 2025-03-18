@@ -118,7 +118,7 @@ def generate_launch_description():
         executable='ackermann_mux',
         name='ackermann_mux',
         parameters=[LaunchConfiguration('mux_config')],
-        remappings=[('ackermann_cmd_out', 'ackermann_drive')]
+        remappings=[('ackermann_drive_out', 'ackermann_cmd')]
     )
     static_tf_node = Node(
         package='tf2_ros',
@@ -134,7 +134,7 @@ def generate_launch_description():
     ld.add_action(vesc_to_odom_node)
     ld.add_action(vesc_driver_node)
     # ld.add_action(throttle_interpolator_node)
-    ld.add_action(urg_node)
+    # ld.add_action(urg_node)
     ld.add_action(ackermann_mux_node)
     ld.add_action(static_tf_node)
 
